@@ -12,3 +12,5 @@ v) **Chromosome naming:** shows the number of variants per chromosome, detects t
 vi) **Samples:** lists the sample names and identifies whether the file is single-sample, a possible trio, or multi-sample <br>
 
 Results are saved to `vcf_check_outputs.txt`, and a timestamped log of each run is saved in `logs/`.<br>
+### Quality control of .vcf file
+3) Run `vcf_normalize.sh` to split multiallelic sites into biallelic sites, trim and left align variants <br> 
