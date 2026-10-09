@@ -1,0 +1,315 @@
+[2026-10-08 15:30:23] Script started
+[2026-10-08 15:30:23] VCF: /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
+[2026-10-08 15:30:23] Results file: /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/vcf_check_outputs.txt
++ [line 57] echo 'VCF SANITY CHECK'
++ [line 58] echo 'File:     /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz'
+++ [line 59] date
++ [line 59] echo 'Date:     Thu Oct  8 15:30:23 IST 2026'
+++ [line 60] bcftools --version
+++ [line 60] head -1
++ [line 60] echo 'bcftools: bcftools 1.24'
++ [line 61] echo 'Log:      /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/logs/vcf_check_20261008_153023.log'
++ [line 63] '[' '!' -f /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz ']'
++ [line 67] ls -lh /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
++ [line 70] section 'STEP 1: Format, compression and index'
++ [line 50] log '=== STEP 1: Format, compression and index ==='
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:25] === STEP 1: Format, compression and index ==='
+[2026-10-08 15:30:25] === STEP 1: Format, compression and index ===
++ [line 51] echo ''
++ [line 52] echo ==================================================
++ [line 53] echo 'STEP 1: Format, compression and index'
++ [line 54] echo ==================================================
+++ [line 72] htsfile /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
++ [line 72] FORMAT='/Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz:	VCF version 4.2 BGZF-compressed variant calling data'
++ [line 73] echo '/Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz:	VCF version 4.2 BGZF-compressed variant calling data'
++ [line 75] echo '/Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz:	VCF version 4.2 BGZF-compressed variant calling data'
++ [line 75] grep -q BGZF
++ [line 76] echo 'OK: file is bgzip-compressed.'
++ [line 94] '[' -f /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz.tbi ']'
++ [line 95] echo 'OK: index already exists.'
++ [line 102] section 'STEP 2: File validity'
++ [line 50] log '=== STEP 2: File validity ==='
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:26] === STEP 2: File validity ==='
+[2026-10-08 15:30:26] === STEP 2: File validity ===
++ [line 51] echo ''
++ [line 52] echo ==================================================
++ [line 53] echo 'STEP 2: File validity'
++ [line 54] echo ==================================================
++ [line 104] echo 'Reading the whole file (can take a few minutes for a WGS)...'
+++ [line 105] mktemp
++ [line 105] ERRFILE=/var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.k4YGdFS6e9
++ [line 106] bcftools view /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
++ [line 107] echo 'OK: bcftools read the whole file without errors.'
+++ [line 112] grep -c . /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.k4YGdFS6e9
+++ [line 112] true
++ [line 112] NWARN=0
++ [line 113] '[' 0 -gt 0 ']'
++ [line 118] rm -f /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.k4YGdFS6e9
+++ [line 120] bcftools index -n /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
+[W::hts_idx_load3] The index file is older than the data file: /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz.tbi
++ [line 120] echo 'Total variant records: 0'
++ [line 123] section 'STEP 3: Header'
++ [line 50] log '=== STEP 3: Header ==='
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:31] === STEP 3: Header ==='
+[2026-10-08 15:30:31] === STEP 3: Header ===
++ [line 51] echo ''
++ [line 52] echo ==================================================
++ [line 53] echo 'STEP 3: Header'
++ [line 54] echo ==================================================
+++ [line 125] mktemp
++ [line 125] HEADER=/var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 126] bcftools view -h /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
++ [line 128] echo '--- File format ---'
++ [line 129] grep '^##fileformat' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 131] echo ''
++ [line 132] echo '--- Variant caller / source ---'
++ [line 133] grep -iE '^##(source|.*commandline|deepvariant)' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 133] cut -c1-200
++ [line 133] head -5
++ [line 134] grep -qiE '^##(source|.*commandline|deepvariant)' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 136] echo ''
++ [line 137] echo '--- Reference line ---'
++ [line 138] grep '^##reference' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 140] echo ''
+++ [line 141] grep -c '^##contig' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 141] echo 'Number of ##contig lines: 2580'
++ [line 143] echo ''
++ [line 144] echo '--- INFO fields ---'
++ [line 145] grep '^##INFO' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 145] sed 's/.*ID=\([^,]*\),.*/\1/'
++ [line 145] tr '\n' ' '
++ [line 146] echo ''
++ [line 148] echo ''
++ [line 149] echo '--- FORMAT fields ---'
++ [line 150] grep '^##FORMAT' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 150] sed 's/.*ID=\([^,]*\),.*/\1/'
++ [line 150] tr '\n' ' '
++ [line 151] echo ''
++ [line 153] echo ''
++ [line 154] echo '--- Key per-sample fields ---'
++ [line 155] for f in GT DP GQ AD
++ [line 156] grep -q '^##FORMAT=<ID=GT,' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 157] echo '  GT  present'
++ [line 155] for f in GT DP GQ AD
++ [line 156] grep -q '^##FORMAT=<ID=DP,' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 157] echo '  DP  present'
++ [line 155] for f in GT DP GQ AD
++ [line 156] grep -q '^##FORMAT=<ID=GQ,' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 157] echo '  GQ  present'
++ [line 155] for f in GT DP GQ AD
++ [line 156] grep -q '^##FORMAT=<ID=AD,' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 157] echo '  AD  present'
++ [line 164] section 'STEP 4: Reference build'
++ [line 50] log '=== STEP 4: Reference build ==='
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:31] === STEP 4: Reference build ==='
+[2026-10-08 15:30:31] === STEP 4: Reference build ===
++ [line 51] echo ''
++ [line 52] echo ==================================================
++ [line 53] echo 'STEP 4: Reference build'
++ [line 54] echo ==================================================
++ [line 166] BUILD=unknown
+++ [line 167] grep -E '^##contig=<ID=(chr)?1,' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
+++ [line 167] sed -n 's/.*length=\([0-9]*\).*/\1/p'
++ [line 167] CHR1_LEN=248956422
++ [line 169] case "$CHR1_LEN" in
++ [line 171] BUILD=GRCh38/hg38
++ [line 175] '[' -n 248956422 ']'
++ [line 175] echo 'chr1 length in header: 248956422'
++ [line 176] echo 'Build from contig lengths: GRCh38/hg38'
++ [line 178] echo ''
++ [line 179] echo 'Build keywords mentioned in the header:'
++ [line 180] grep -ioE 'grch37|grch38|hg19|hg38|b37|hs37d5' /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 180] sort
++ [line 180] uniq -c
++ [line 182] '[' -n '' ']'
++ [line 189] echo ''
++ [line 190] echo 'No reference given, so the REF-allele check was skipped.'
++ [line 191] echo 'Set REF= at the top of the script to run it.'
++ [line 195] section 'STEP 5: Chromosome naming'
++ [line 50] log '=== STEP 5: Chromosome naming ==='
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:31] === STEP 5: Chromosome naming ==='
+[2026-10-08 15:30:31] === STEP 5: Chromosome naming ===
++ [line 51] echo ''
++ [line 52] echo ==================================================
++ [line 53] echo 'STEP 5: Chromosome naming'
++ [line 54] echo ==================================================
++ [line 197] echo 'Variants per chromosome (name, length, count):'
++ [line 198] bcftools index -s /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
+[W::hts_idx_load3] The index file is older than the data file: /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz.tbi
+index of /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz does not contain any count metadata. Please re-index with a newer version of bcftools or tabix.
+++ [line 198] on_error 1 198 'bcftools index -s "$VCF"'
+++ [line 23] log 'ERROR: exit code 1 at line 198 -> bcftools index -s "$VCF"'
++++ [line 19] date '+%Y-%m-%d %H:%M:%S'
+++ [line 19] echo '[2026-10-08 15:30:31] ERROR: exit code 1 at line 198 -> bcftools index -s "$VCF"'
+[2026-10-08 15:30:31] ERROR: exit code 1 at line 198 -> bcftools index -s "$VCF"
+++ [line 200] bcftools index -s /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
+++ [line 200] cut -f1
+[W::hts_idx_load3] The index file is older than the data file: /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz.tbi
+index of /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz does not contain any count metadata. Please re-index with a newer version of bcftools or tabix.
++ [line 200] CONTIGS=
++ [line 201] echo ''
++ [line 201] grep -q '^chr'
++ [line 205] NAMING='Ensembl/NCBI style (1, 2, ...)'
++ [line 206] PREFIX=
++ [line 208] echo ''
++ [line 209] echo 'Naming: Ensembl/NCBI style (1, 2, ...)'
+++ [line 211] echo ''
+++ [line 211] grep -xE 'chrM|chrMT|MT|M'
+++ [line 211] true
++ [line 211] MITO=
++ [line 212] echo 'Mitochondrial chromosome: (none found)'
++ [line 214] MISSING=
+++ [line 217] seq 1 22
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 1
++ [line 216] MISSING=' 1'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 2
++ [line 216] MISSING=' 1 2'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 3
++ [line 216] MISSING=' 1 2 3'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 4
++ [line 216] MISSING=' 1 2 3 4'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 5
++ [line 216] MISSING=' 1 2 3 4 5'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 6
++ [line 216] MISSING=' 1 2 3 4 5 6'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 7
++ [line 216] MISSING=' 1 2 3 4 5 6 7'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 8
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 9
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 10
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 11
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 12
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 13
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 14
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 15
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 16
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 17
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 18
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 19
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 20
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 21
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx 22
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx X
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 X'
++ [line 215] for c in '$(seq 1 22)' X Y
++ [line 216] echo ''
++ [line 216] grep -qx Y
++ [line 216] MISSING=' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 X Y'
++ [line 218] '[' -z ' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 X Y' ']'
++ [line 221] echo 'Chromosomes with NO variants: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 X Y'
++ [line 222] echo '(Missing Y is normal for a female sample.)'
++ [line 225] '[' -n '' ']'
++ [line 231] section 'STEP 6: Samples'
++ [line 50] log '=== STEP 6: Samples ==='
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:31] === STEP 6: Samples ==='
+[2026-10-08 15:30:31] === STEP 6: Samples ===
++ [line 51] echo ''
++ [line 52] echo ==================================================
++ [line 53] echo 'STEP 6: Samples'
++ [line 54] echo ==================================================
+++ [line 233] bcftools query -l /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
++ [line 233] SAMPLES=WGS_EX2312012
+++ [line 234] echo WGS_EX2312012
+++ [line 234] grep -c .
++ [line 234] NSAMP=1
++ [line 235] echo 'Number of samples: 1'
++ [line 236] echo 'Sample names:'
++ [line 237] echo WGS_EX2312012
++ [line 237] sed 's/^/  /'
++ [line 239] case "$NSAMP" in
++ [line 241] TYPE=single-sample
++ [line 245] echo 'Type: single-sample'
++ [line 248] section SUMMARY
++ [line 50] log '=== SUMMARY ==='
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:31] === SUMMARY ==='
+[2026-10-08 15:30:31] === SUMMARY ===
++ [line 51] echo ''
++ [line 52] echo ==================================================
++ [line 53] echo SUMMARY
++ [line 54] echo ==================================================
++ [line 250] echo 'File:        /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz'
+++ [line 251] bcftools index -n /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz
+[W::hts_idx_load3] The index file is older than the data file: /Users/gouri/rare_disease_hackathon/WGS_EX2312012_HGWCNDSX7.vcf.gz.tbi
++ [line 251] echo 'Variants:    0'
++ [line 252] echo 'Build:       GRCh38/hg38'
++ [line 253] echo 'Naming:      Ensembl/NCBI style (1, 2, ...)'
++ [line 254] echo 'Samples:     1 (single-sample)'
++ [line 255] echo ''
++ [line 256] echo 'Results saved to: /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/vcf_check_outputs.txt'
++ [line 257] echo 'Log saved to:     /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/logs/vcf_check_20261008_153023.log'
++ [line 259] rm -f /var/folders/sy/k1tyds7j5gq03159y96hpt8w0000gn/T/tmp.yalkHJ1uTn
++ [line 260] on_exit
++ [line 27] local code=0
++ [line 28] '[' 0 -eq 0 ']'
++ [line 29] log 'Script finished successfully'
+++ [line 19] date '+%Y-%m-%d %H:%M:%S'
++ [line 19] echo '[2026-10-08 15:30:31] Script finished successfully'
+[2026-10-08 15:30:31] Script finished successfully
