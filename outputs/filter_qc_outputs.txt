@@ -1,0 +1,92 @@
+STATISTICS, FILTERING AND QC
+Input:      /Users/gouri/rare_disease_hackathon/normalized/WGS_EX2312012.norm.vcf.gz
+Output:     /Users/gouri/rare_disease_hackathon/filtered/WGS_EX2312012.filtered.vcf.gz
+Thresholds: FILTER=PASS, DP>=10, GQ>=20, main chromosomes, no * alleles
+Date:       Fri Oct  9 19:20:46 IST 2026
+
+==================================================
+STEP 1: Statistics on the normalized VCF
+==================================================
+Running bcftools stats on all records...
+Running bcftools stats on PASS records...
+Total records: 5079064
+OK: statistics saved to /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/vcf_stats.txt
+
+==================================================
+STEP 2: FILTER breakdown
+==================================================
+  PASS                                             4807039  ( 94.6%)
+  MQ40                                              178127  (  3.5%)
+  QD2                                                35402  (  0.7%)
+  LowQual;QD2                                        17000  (  0.3%)
+  MQ40;QD2                                           12541  (  0.2%)
+  LowQual;MQ40;QD2                                   10240  (  0.2%)
+  LowQual;MQ40                                        9782  (  0.2%)
+  LowQual                                             6081  (  0.1%)
+  FS60;MQ40                                            937  (  0.0%)
+  FS60                                                 835  (  0.0%)
+  MQRankSum-12.5                                       474  (  0.0%)
+  FS60;MQ40;QD2                                        101  (  0.0%)
+  MQRankSum-12.5;QD2                                    72  (  0.0%)
+  MQ40;MQRankSum-12.5                                   72  (  0.0%)
+  FS60;QD2                                              55  (  0.0%)
+  MQ40;RPRS-8                                           52  (  0.0%)
+  RPRS-8                                                47  (  0.0%)
+  FS60;MQRankSum-12.5                                   46  (  0.0%)
+  MQRankSum-12.5;RPRS-8                                 35  (  0.0%)
+  MQ40;QD2;RPRS-8                                       23  (  0.0%)
+  MQ40;MQRankSum-12.5;RPRS-8                            16  (  0.0%)
+  FS60;MQ40;RPRS-8                                      16  (  0.0%)
+  FS60;MQ40;MQRankSum-12.5                              16  (  0.0%)
+  MQ40;MQRankSum-12.5;QD2                               10  (  0.0%)
+  QD2;RPRS-8                                             9  (  0.0%)
+  MQRankSum-12.5;QD2;RPRS-8                              9  (  0.0%)
+  FS60;RPRS-8                                            6  (  0.0%)
+  FS60;MQRankSum-12.5;QD2                                4  (  0.0%)
+  FS60;LowQual;MQ40;QD2                                  4  (  0.0%)
+  FS60;MQRankSum-12.5;RPRS-8                             3  (  0.0%)
+  FS60;MQ40;MQRankSum-12.5;RPRS-8                        3  (  0.0%)
+  LowQual;MQRankSum-12.5;QD2                             2  (  0.0%)
+  FS60;MQ40;QD2;RPRS-8                                   2  (  0.0%)
+  FS60;LowQual;QD2                                       2  (  0.0%)
+  MQ40;MQRankSum-12.5;QD2;RPRS-8                         1  (  0.0%)
+
+==================================================
+STEP 3: Filtering
+==================================================
+Keeping chromosomes: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y,M
+Filtering (a few minutes)...
+OK: filtering finished.
+OK: filtered VCF indexed.
+
+==================================================
+STEP 4: QC of the filtered VCF
+==================================================
+Running bcftools stats on the filtered VCF...
+Non-PASS records left:        0  (should be 0)
+'*' records left:             0  (should be 0)
+Records below DP/GQ minimum:  0  (should be 0)
+
+--- Before vs after filtering ---
+  Metric                 Normalized       Filtered
+  Records                   5079064        4664562
+  SNPs                      4088626        3749648
+  Indels                     990438         914914
+  Ts/Tv                        1.94           2.03
+  Heterozygous              2536505        2285955
+  Homozygous alt            1552121        1463693
+  Het/hom                      1.63           1.56
+  Mean depth                   44.9           43.0
+
+  Records kept: 91.8%
+
+==================================================
+SUMMARY
+==================================================
+Filtered VCF:  /Users/gouri/rare_disease_hackathon/filtered/WGS_EX2312012.filtered.vcf.gz
+Records kept:  4664562 of 5079064 (91.8%)
+
+Statistics:    /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/vcf_stats.txt
+Report:        /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/filter_qc_outputs.txt
+Full stats:    /Users/gouri/rare_disease_hackathon/qc
+Log:           /Users/gouri/rare_disease_hackathon/GITHUB/rare_disease_hackathon/logs/filter_qc_20261009_192046.log
