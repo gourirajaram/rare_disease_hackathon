@@ -14,3 +14,4 @@ vi) **Samples:** lists the sample names and identifies whether the file is singl
 Results are saved to `vcf_check_outputs.txt`, and a timestamped log of each run is saved in `logs/`.<br>
 ### Quality control of .vcf file
 3) Run `vcf_normalize.sh` to split multiallelic sites into biallelic sites, trim and left align variants <br> 
+4) Run `vcf_qc.sh` to filter for variants that cross the `DP>=10`, `GQ>=20` and `FILTER=PASS` thresholds<br>
