@@ -11,3 +11,20 @@ echo 'export PATH="$(brew --prefix openjdk)/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 java -version
 ```
+### Data downloads
+Refer to https://github.com/exomiser/Exomiser/discussions/640 for latest data download <br>
+Create exomiser's home folder
+```bash
+exomiser --version
+ls ~/.exomiser
+# this creates an application.properties settings file and an empty data folder
+# to speed up data download
+brew install aria2
+cd ~/.exomiser/data
+cat > data_download_urls.txt <<EOF
+heredoc> https://g-879a9f.f5dc97.75bc.dn.glob.us/data/2602_phenotype.zip
+heredoc> https://g-879a9f.f5dc97.75bc.dn.glob.us/data/2602_hg38.zip
+heredoc> EOF
+caffeinate -i aria2c -x 16 -s 16 -j 2 -c -i data_download_urls.txt
+```
+
