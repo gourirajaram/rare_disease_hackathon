@@ -13,6 +13,7 @@ java -version
 ```
 ### Data downloads
 Refer to https://github.com/exomiser/Exomiser/discussions/640 for latest data download <br>
+Note that this takes several hours<br>
 Create exomiser's home folder
 ```bash
 exomiser --version
