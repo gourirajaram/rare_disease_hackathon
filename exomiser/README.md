@@ -1,7 +1,7 @@
 Scripts and requirements to run [Exomiser](https://exomiser.readthedocs.io/en/latest/installation.html#quick-start-overview) on the WGS data <br>
-On MacOS <br>
-### Requirements
 
+### Requirements
+For MacOS
 ```bash
 brew install exomiser/tap/exomiser
 # for java requirements
