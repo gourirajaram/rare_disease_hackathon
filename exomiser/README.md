@@ -33,3 +33,16 @@ Unzip the data files
 cd ~/.exomiser/data
 nohup caffeinate -i sh -c 'unzip -o 2602_phenotype.zip && unzip -o 2602_hg38.zip' > unzip.log 2>&1 &
 ```
+Delete the zip files to free up space
+```bash
+   rm ~/.exomiser/data/2602_hg38.zip ~/.exomiser/data/2602_phenotype.zip
+```
+Edit the config
+```bash
+   nano ~/.exomiser/application.properties
+```
+Edits to be made <br>
+- Under the `### hg19 assembly ###`, comment out the hg19 line by adding # <br>
+- Under the `### hg38 assembly ###`, remove the # and change existing number to 2602 <br>
+- Under the `### phenotypes ###`, change the existing number to 2602 <br>
+Save in nano by Ctrl+O and Ctrl+X <br>
