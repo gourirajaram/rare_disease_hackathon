@@ -15,3 +15,6 @@ Results are saved to `vcf_check_outputs.txt`, and a timestamped log of each run 
 ### Quality control of .vcf file
 3) Run `vcf_normalize.sh` to split multiallelic sites into biallelic sites, trim and left align variants <br> 
 4) Run `vcf_qc.sh` to filter for variants that cross the `DP>=10`, `GQ>=20` and `FILTER=PASS` thresholds<br>
+### Run [Exomiser](https://exomiser.readthedocs.io/en/latest/installation.html#configuring-the-data-directory)
+5) Details in the `exomiser` folder <br>
+6) Outputs saved in the `exomiser` folder <br>
