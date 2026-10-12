@@ -12,9 +12,9 @@ source ~/.zshrc
 java -version
 ```
 ### Data downloads
-Refer to https://github.com/exomiser/Exomiser/discussions/640 for latest data download <br>
-Note that this takes several hours<br>
-Create exomiser's home folder
+Refer to https://github.com/exomiser/Exomiser/discussions/640 for latest data download.<br>
+Note that this takes several hours.<br>
+Create exomiser's home folder.
 ```bash
 exomiser --version
 ls ~/.exomiser
@@ -28,4 +28,8 @@ heredoc> https://g-879a9f.f5dc97.75bc.dn.glob.us/data/2602_hg38.zip
 heredoc> EOF
 caffeinate -i aria2c -x 16 -s 16 -j 2 -c -i data_download_urls.txt
 ```
-
+Unzip the data files
+```bash
+cd ~/.exomiser/data
+nohup caffeinate -i sh -c 'unzip -o 2602_phenotype.zip && unzip -o 2602_hg38.zip' > unzip.log 2>&1 &
+```
