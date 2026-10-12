@@ -61,3 +61,11 @@ other option
 sed -i '' '26s|.*|exomiser.data-directory=/Users/gouri/.exomiser/data|' ~/.exomiser/application.properties
 sed -n '26p' ~/.exomiser/application.properties
 ```
+### Run exomiser
+```bash
+export JAVA_TOOL_OPTIONS="-Xmx12g"
+nohup caffeinate -i exomiser analyse --analysis $PID.yml > $PID.log 2>&1 &
+tail -f $PID.log
+```
+### Output
+Stored in `results` folder in the `exomiser` folder as per the .yml file
