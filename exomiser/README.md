@@ -46,3 +46,18 @@ Edits to be made <br>
 - Under the `### hg38 assembly ###`, remove the # and change existing number to 2602 <br>
 - Under the `### phenotypes ###`, change the existing number to 2602 <br>
 Save in nano by Ctrl+O and Ctrl+X <br>
+```bash
+grep -n "data-directory" ~/.exomiser/application.properties
+grep -E "^exomiser\.(data-directory|hg19\.data-version|hg38\.data-version|phenotype\.data-version)" ~/.exomiser/application.properties
+```
+You should see exactly i.e the exomiser.data-directory should be uncommented
+```bash
+exomiser.data-directory=/Users/gouri/.exomiser/data
+exomiser.hg38.data-version=2602
+exomiser.phenotype.data-version=2602
+```
+other option
+```bash
+sed -i '' '26s|.*|exomiser.data-directory=/Users/gouri/.exomiser/data|' ~/.exomiser/application.properties
+sed -n '26p' ~/.exomiser/application.properties
+```
