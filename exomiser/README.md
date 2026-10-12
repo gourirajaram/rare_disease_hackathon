@@ -76,4 +76,6 @@ python3 exomiser_to_submission.py results gouri1310_track1_submission.csv --top 
 cat gouri1310_track1_submission.csv
 awk 'BEGIN{FS=OFS=","} NR>1{$1="PROBAND01"} 1' gouri1310_track1_submission.csv > tmp.csv && mv tmp.csv gouri1310_track1_submission.csv
 ```
-
+The above script scored a 50/100 on the hackathon scoring metric. <br>
+Edit the .yml script to include variants for autosomal recessive (AR) disorders only. <br>
+Refer to `WGS_EX2312012_run2.yml` - results for this are uploaded in the `results` folder. <br>
