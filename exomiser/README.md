@@ -68,4 +68,12 @@ nohup caffeinate -i exomiser analyse --analysis $PID.yml > $PID.log 2>&1 &
 tail -f $PID.log
 ```
 ### Output
-Stored in `results` folder in the `exomiser` folder as per the .yml file
+Stored in `results` folder in the `exomiser` folder as per the .yml file <br>
+First run is saved as ` <br>
+```bash
+cd ~/rare_disease_hackathon/exomiser
+python3 exomiser_to_submission.py results gouri1310_track1_submission.csv --top 10
+cat gouri1310_track1_submission.csv
+awk 'BEGIN{FS=OFS=","} NR>1{$1="PROBAND01"} 1' gouri1310_track1_submission.csv > tmp.csv && mv tmp.csv gouri1310_track1_submission.csv
+```
+
