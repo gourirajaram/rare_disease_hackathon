@@ -1,5 +1,5 @@
 Scripts and requirements to run [Exomiser](https://exomiser.readthedocs.io/en/latest/installation.html#quick-start-overview) on the WGS data. <br>
-Final results are from the `WGS_EX2312012_run2.yml` script <br>
+Final results are from the `WGS_EX2312012_run2.yml` script. Edit the `.yml` file to include required HPO IDs of the patient. <br>
 <br>
 
 ### Requirements
