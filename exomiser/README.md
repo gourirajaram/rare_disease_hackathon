@@ -1,4 +1,6 @@
-Scripts and requirements to run [Exomiser](https://exomiser.readthedocs.io/en/latest/installation.html#quick-start-overview) on the WGS data <br>
+Scripts and requirements to run [Exomiser](https://exomiser.readthedocs.io/en/latest/installation.html#quick-start-overview) on the WGS data 
+Final results are from the `WGS_EX2312012_run2.yml` script <br>
+<br>
 
 ### Requirements
 For MacOS
