@@ -19,4 +19,4 @@ Results are saved to `vcf_check_outputs.txt`, and a timestamped log of each run 
 5) Details in the `exomiser` folder <br>
 6) Outputs saved in the `exomiser` folder <br> <br>
 
-Claude Opus 5.5, and Gemini 3 models  were used for prompts to assist with coding. <br>
+Claude Opus 5.5, and Gemini 3 models  were prompted to assist with coding. <br>
