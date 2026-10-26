@@ -1,6 +1,6 @@
 # rare_disease_hackathon
 Repository of my codes for the [MVA Rare Disease Hackathon (Track 1) organised by HuggingFace](https://huggingface.co/spaces/SageBio/rare-disease-real-kid-mva-hackathon-2026) 2026. <br> <br>
-## Compute requirements <br>
+### Compute requirements <br>
 Run on MacOS - Apple M5, 16 GB RAM 
 ##### Pipeline ran successfully with full scores: Rank points-100, F-max-1.0
 ### Reference Genome build check and other details for the .vcf file
