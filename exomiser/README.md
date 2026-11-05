@@ -64,6 +64,7 @@ sed -i '' '26s|.*|exomiser.data-directory=/Users/gouri/.exomiser/data|' ~/.exomi
 sed -n '26p' ~/.exomiser/application.properties
 ```
 ### Run exomiser
+Since mosaic variegated aneuploidy is an autosomal recessive disorder, only autosomal recessive modes of inheritance were included(specify `inheritanceModes: {AUTOSOMAL_RECESSIVE_HOM_ALT: 0.1, AUTOSOMAL_RECESSIVE_COMP_HET: 2.0}`)<br>
 ```bash
 export JAVA_TOOL_OPTIONS="-Xmx12g"
 nohup caffeinate -i exomiser analyse --analysis $PID.yml > $PID.log 2>&1 &
@@ -71,13 +72,12 @@ tail -f $PID.log
 ```
 ### Output
 Stored in `results` folder in the `exomiser` folder as per the .yml file <br>
-First run is saved as ` <br>
+Run is saved as ` <br>
 ```bash
 cd ~/rare_disease_hackathon/exomiser
-python3 exomiser_to_submission.py results gouri1310_track1_submission.csv --top 10
+python3 exomiser_to_submission.py results gouri1310_track1_submission_2.csv --top 10
 cat gouri1310_track1_submission.csv
-awk 'BEGIN{FS=OFS=","} NR>1{$1="PROBAND01"} 1' gouri1310_track1_submission.csv > tmp.csv && mv tmp.csv gouri1310_track1_submission.csv
+awk 'BEGIN{FS=OFS=","} NR>1{$1="PROBAND01"} 1' gouri1310_track1_submission_2.csv > tmp.csv && mv tmp.csv gouri1310_track1_submission_2.csv
 ```
-The above script scored a 50/100 on the hackathon scoring metric. <br>
 Edit the .yml script to include variants for autosomal recessive (AR) disorders only. <br>
 Refer to `WGS_EX2312012_run2.yml` - results for this are uploaded in the `results` folder. <br>
