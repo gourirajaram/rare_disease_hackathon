@@ -63,6 +63,7 @@ other option
 sed -i '' '26s|.*|exomiser.data-directory=/Users/gouri/.exomiser/data|' ~/.exomiser/application.properties
 sed -n '26p' ~/.exomiser/application.properties
 ```
+Create the .yml file using the `yaml_file_creation.md`
 ### Run exomiser
 Since mosaic variegated aneuploidy is an autosomal recessive disorder, only autosomal recessive modes of inheritance were included(specify `inheritanceModes: {AUTOSOMAL_RECESSIVE_HOM_ALT: 0.1, AUTOSOMAL_RECESSIVE_COMP_HET: 2.0}`)<br>
 ```bash
