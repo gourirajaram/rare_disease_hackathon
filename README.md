@@ -6,6 +6,7 @@ Run on MacOS - Apple M5, 16 GB RAM
 ### Reference Genome build check and other details for the .vcf file
 1) Run `installations.sh` to install necessary tools <br> 
 2) Run `vcf_file_check.sh` to perform preliminary checks on the .vcf file such as reference build check, and chromosome naming convention.<br>
+<br><br>
 Results are saved to `vcf_check_outputs.txt`, and a timestamped log of each run is saved in `logs/`.This has been deleted from public forum as per the hackathon rules.<br>
 ### Quality control of .vcf file
 3) Run `vcf_normalize.sh` to split multiallelic sites into biallelic sites, trim and left align variants <br> 
